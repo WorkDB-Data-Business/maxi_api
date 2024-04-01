@@ -19,6 +19,10 @@ register_error_handlers(app)
 def connect_oracle():
     OracleConnector()
 
+@app.on_event("shutdown")
+def close_oracle():
+    OracleConnector().close()
+
 define_resource(app, '/apontamentos', ApontamentosView)
 define_resource(app, '/atributos', AtributosView)
 define_resource(app, '/estoque', EstoqueView)

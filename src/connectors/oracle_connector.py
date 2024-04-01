@@ -34,6 +34,10 @@ class OracleConnector(metaclass=Singleton):
         if not self.connected or not self.cn.ping():
             raise ConnectionError('Oracle', self.host, write_traceback=True)
 
+    def close(self):
+        self.cursor.close()
+        self.cn.close()
+
     def execute(self, query):
         self.cursor.execute(query)
         return self.cursor.fetchall()
