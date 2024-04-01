@@ -16,7 +16,7 @@ register_error_handlers(app)
 
 
 @app.on_event("startup")
-def connect_mysql():
+def connect_oracle():
     OracleConnector()
 
 define_resource(app, '/apontamentos', ApontamentosView)
