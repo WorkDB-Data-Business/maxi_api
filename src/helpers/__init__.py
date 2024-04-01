@@ -1,0 +1,1 @@
+from .define_resource import define_resource
