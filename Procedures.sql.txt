@@ -1,0 +1,399 @@
+USE [ORAAPI]
+GO
+
+/****** Object:  StoredProcedure [dbo].[ERP_NEO_ATRIBUTOS]    Script Date: 17/06/2024 16:24:49 ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+
+CREATE PROCEDURE  [dbo].[ERP_NEO_ATRIBUTOS]
+    @Parametro NVARCHAR(100)  -- Parâmetro a ser passado para os scripts
+AS
+BEGIN
+    DECLARE @CaminhoScript1 NVARCHAR(500);
+    DECLARE @CaminhoScript2 NVARCHAR(500);
+    DECLARE @Comando1 NVARCHAR(1000);
+    DECLARE @Comando2 NVARCHAR(1000);
+
+    -- Definindo os caminhos para os scripts PowerShell
+    SET @CaminhoScript1 = 'C:\ORAAPI\ VW_ERP_NEO_ATRIBUTOS.ps1';
+    SET @CaminhoScript2 = 'C:\ORAAPI\INSERE_VW_ERP_NEO_ATRIBUTOS.ps1';
+
+    -- Construindo os comandos PowerShell com os caminhos dos scripts e o parâmetro
+    SET @Comando1 = 'powershell.exe -ExecutionPolicy Bypass -File "' + @CaminhoScript1 + '"';
+    SET @Comando2 = 'powershell.exe -ExecutionPolicy Bypass -File "' + @CaminhoScript2 + '"';
+
+    -- Executando os scripts PowerShell usando xp_cmdshell
+    EXEC xp_cmdshell @Comando1;
+    EXEC xp_cmdshell @Comando2;
+END;
+GO
+
+/****** Object:  StoredProcedure [dbo].[ERP_NEO_ORDEM_COMPRA]    Script Date: 17/06/2024 16:24:49 ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE PROCEDURE [dbo].[ERP_NEO_ORDEM_COMPRA]
+    @Parametro NVARCHAR(100)  -- Parâmetro a ser passado para os scripts
+AS
+BEGIN
+    DECLARE @CaminhoScript1 NVARCHAR(500);
+    DECLARE @CaminhoScript2 NVARCHAR(500);
+    DECLARE @Comando1 NVARCHAR(1000);
+    DECLARE @Comando2 NVARCHAR(1000);
+
+    -- Definindo os caminhos para os scripts PowerShell
+    SET @CaminhoScript1 = 'C:\ORAAPI\VW_ERP_NEO_ORDEM_COMPRA.ps1';
+    SET @CaminhoScript2 = 'C:\ORAAPI\INSERE_VW_ERP_NEO_ORDEM_COMPRA.ps1';
+
+    -- Construindo os comandos PowerShell com os caminhos dos scripts e o parâmetro
+    SET @Comando1 = 'powershell.exe -ExecutionPolicy Bypass -File "' + @CaminhoScript1 + '"';
+    SET @Comando2 = 'powershell.exe -ExecutionPolicy Bypass -File "' + @CaminhoScript2 + '" -Parametro "' + @Parametro + '"';
+
+    -- Executando os scripts PowerShell usando xp_cmdshell
+    EXEC xp_cmdshell @Comando1;
+    EXEC xp_cmdshell @Comando2;
+END;
+GO
+
+/****** Object:  StoredProcedure [dbo].[ERP_NEO_UNIDADE_FABRIL]    Script Date: 17/06/2024 16:24:49 ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+
+CREATE PROCEDURE [dbo].[ERP_NEO_UNIDADE_FABRIL]
+    @Parametro NVARCHAR(100)  -- Parâmetro a ser passado para os scripts
+AS
+BEGIN
+    DECLARE @CaminhoScript1 NVARCHAR(500);
+    DECLARE @CaminhoScript2 NVARCHAR(500);
+    DECLARE @Comando1 NVARCHAR(1000);
+    DECLARE @Comando2 NVARCHAR(1000);
+
+    -- Definindo os caminhos para os scripts PowerShell
+    SET @CaminhoScript1 = 'C:\ORAAPI\VW_ERP_NEO_UNIDADE_FABRIL.ps1';
+    SET @CaminhoScript2 = 'C:\ORAAPI\INSERE_VW_ERP_NEO_UNIDADE_FABRIL.ps1';
+
+    -- Construindo os comandos PowerShell com os caminhos dos scripts e o parâmetro
+    SET @Comando1 = 'powershell.exe -ExecutionPolicy Bypass -File "' + @CaminhoScript1 + '"';
+    SET @Comando2 = 'powershell.exe -ExecutionPolicy Bypass -File "' + @CaminhoScript2 + '"';
+
+    -- Executando os scripts PowerShell usando xp_cmdshell
+    EXEC xp_cmdshell @Comando1;
+    EXEC xp_cmdshell @Comando2;
+END;
+GO
+
+/****** Object:  StoredProcedure [dbo].[SPR_ERP_NEO_APONTAMENTO]    Script Date: 17/06/2024 16:24:49 ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE PROCEDURE [dbo].[SPR_ERP_NEO_APONTAMENTO]
+    @Parametro NVARCHAR(100)  -- Parâmetro a ser passado para os scripts
+AS
+BEGIN
+    DECLARE @CaminhoScript1 NVARCHAR(500);
+    DECLARE @CaminhoScript2 NVARCHAR(500);
+    DECLARE @Comando1 NVARCHAR(1000);
+    DECLARE @Comando2 NVARCHAR(1000);
+
+    -- Definindo os caminhos para os scripts PowerShell
+    SET @CaminhoScript1 = 'C:\ORAAPI\VW_ERP_NEO_APONTAMENTO.ps1';
+    SET @CaminhoScript2 = 'C:\ORAAPI\INSERE_VW_ERP_NEO_APONTAMENTO.ps1';
+
+    -- Construindo os comandos PowerShell com os caminhos dos scripts e o parâmetro
+    SET @Comando1 = 'powershell.exe -ExecutionPolicy Bypass -File "' + @CaminhoScript1 + '"';
+    SET @Comando2 = 'powershell.exe -ExecutionPolicy Bypass -File "' + @CaminhoScript2 + '" -Parametro "' + @Parametro + '"';
+
+    -- Executando os scripts PowerShell usando xp_cmdshell
+    EXEC xp_cmdshell @Comando1;
+    EXEC xp_cmdshell @Comando2;
+END;
+
+GO
+
+/****** Object:  StoredProcedure [dbo].[SPR_ERP_NEO_ESTOQUE]    Script Date: 17/06/2024 16:24:49 ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE PROCEDURE [dbo].[SPR_ERP_NEO_ESTOQUE]
+    @Parametro NVARCHAR(100)  -- Parâmetro a ser passado para os scripts
+AS
+BEGIN
+    DECLARE @CaminhoScript1 NVARCHAR(500);
+    DECLARE @CaminhoScript2 NVARCHAR(500);
+    DECLARE @Comando1 NVARCHAR(1000);
+    DECLARE @Comando2 NVARCHAR(1000);
+
+    -- Definindo os caminhos para os scripts PowerShell
+    SET @CaminhoScript1 = 'C:\ORAAPI\VW_ERP_NEO_ESTOQUE.ps1';
+    SET @CaminhoScript2 = 'C:\ORAAPI\INSERE_VW_ERP_NEO_ESTOQUE.ps1';
+
+    -- Construindo os comandos PowerShell com os caminhos dos scripts e o parâmetro
+    SET @Comando1 = 'powershell.exe -ExecutionPolicy Bypass -File "' + @CaminhoScript1 + '"';
+    SET @Comando2 = 'powershell.exe -ExecutionPolicy Bypass -File "' + @CaminhoScript2 + '" -Parametro "' + @Parametro + '"';
+
+    -- Executando os scripts PowerShell usando xp_cmdshell
+    EXEC xp_cmdshell @Comando1;
+    EXEC xp_cmdshell @Comando2;
+END;
+GO
+
+/****** Object:  StoredProcedure [dbo].[SPR_ERP_NEO_ESTRUTURA_PRODUTO]    Script Date: 17/06/2024 16:24:49 ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE PROCEDURE [dbo].[SPR_ERP_NEO_ESTRUTURA_PRODUTO]
+    @Parametro NVARCHAR(100)  -- Parâmetro a ser passado para os scripts
+AS
+BEGIN
+    DECLARE @CaminhoScript1 NVARCHAR(500);
+    DECLARE @CaminhoScript2 NVARCHAR(500);
+    DECLARE @Comando1 NVARCHAR(1000);
+    DECLARE @Comando2 NVARCHAR(1000);
+
+    -- Definindo os caminhos para os scripts PowerShell
+    SET @CaminhoScript1 = 'C:\ORAAPI\VW_ERP_NEO_ESTRUTURA_PRODUTO.ps1';
+    SET @CaminhoScript2 = 'C:\ORAAPI\INSERE_VW_ERP_NEO_ESTRUTURA_PRODUTO.ps1';
+
+    -- Construindo os comandos PowerShell com os caminhos dos scripts e o parâmetro
+    SET @Comando1 = 'powershell.exe -ExecutionPolicy Bypass -File "' + @CaminhoScript1 + '"';
+    SET @Comando2 = 'powershell.exe -ExecutionPolicy Bypass -File "' + @CaminhoScript2 + '" -Parametro "' + @Parametro + '"';
+
+    -- Executando os scripts PowerShell usando xp_cmdshell
+    EXEC xp_cmdshell @Comando1;
+    EXEC xp_cmdshell @Comando2;
+END;
+
+GO
+
+/****** Object:  StoredProcedure [dbo].[SPR_ERP_NEO_GRUPO_RECURSO]    Script Date: 17/06/2024 16:24:49 ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE PROCEDURE [dbo].[SPR_ERP_NEO_GRUPO_RECURSO]
+    @Parametro NVARCHAR(100)  -- Parâmetro a ser passado para os scripts
+AS
+BEGIN
+    DECLARE @CaminhoScript1 NVARCHAR(500);
+    DECLARE @CaminhoScript2 NVARCHAR(500);
+    DECLARE @Comando1 NVARCHAR(1000);
+    DECLARE @Comando2 NVARCHAR(1000);
+
+    -- Definindo os caminhos para os scripts PowerShell
+    SET @CaminhoScript1 = 'C:\ORAAPI\VW_ERP_NEO_GRUPO_RECURSO.ps1';
+    SET @CaminhoScript2 = 'C:\ORAAPI\INSERE_VW_ERP_NEO_GRUPO_RECURSO.ps1';
+
+    -- Construindo os comandos PowerShell com os caminhos dos scripts e o parâmetro
+    SET @Comando1 = 'powershell.exe -ExecutionPolicy Bypass -File "' + @CaminhoScript1 + '"';
+    SET @Comando2 = 'powershell.exe -ExecutionPolicy Bypass -File "' + @CaminhoScript2 + '" -Parametro "' + @Parametro + '"';
+
+    -- Executando os scripts PowerShell usando xp_cmdshell
+    EXEC xp_cmdshell @Comando1;
+    EXEC xp_cmdshell @Comando2;
+END;
+GO
+
+/****** Object:  StoredProcedure [dbo].[SPR_ERP_NEO_ITEM]    Script Date: 17/06/2024 16:24:49 ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE PROCEDURE [dbo].[SPR_ERP_NEO_ITEM]
+    @Parametro NVARCHAR(100)  -- Parâmetro a ser passado para os scripts
+AS
+BEGIN
+    DECLARE @CaminhoScript1 NVARCHAR(500);
+    DECLARE @CaminhoScript2 NVARCHAR(500);
+    DECLARE @Comando1 NVARCHAR(1000);
+    DECLARE @Comando2 NVARCHAR(1000);
+
+    -- Definindo os caminhos para os scripts PowerShell
+    SET @CaminhoScript1 = 'C:\ORAAPI\VW_ERP_NEO_ITEM.ps1';
+    SET @CaminhoScript2 = 'C:\ORAAPI\INSERE_VW_ERP_NEO_ITEM.ps1';
+
+    -- Construindo os comandos PowerShell com os caminhos dos scripts e o parâmetro
+    SET @Comando1 = 'powershell.exe -ExecutionPolicy Bypass -File "' + @CaminhoScript1 + '"';
+    SET @Comando2 = 'powershell.exe -ExecutionPolicy Bypass -File "' + @CaminhoScript2 + '" -Parametro "' + @Parametro + '"';
+
+    -- Executando os scripts PowerShell usando xp_cmdshell
+    EXEC xp_cmdshell @Comando1;
+    EXEC xp_cmdshell @Comando2;
+END;
+
+GO
+
+/****** Object:  StoredProcedure [dbo].[SPR_ERP_NEO_LISTA_MATERIAIS]    Script Date: 17/06/2024 16:24:49 ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE PROCEDURE [dbo].[SPR_ERP_NEO_LISTA_MATERIAIS]
+    @Parametro NVARCHAR(100)  -- Parâmetro a ser passado para os scripts
+AS
+BEGIN
+    DECLARE @CaminhoScript1 NVARCHAR(500);
+    DECLARE @CaminhoScript2 NVARCHAR(500);
+    DECLARE @Comando1 NVARCHAR(1000);
+    DECLARE @Comando2 NVARCHAR(1000);
+
+    -- Definindo os caminhos para os scripts PowerShell
+    SET @CaminhoScript1 = 'C:\ORAAPI\VW_ERP_NEO_LISTA_MATERIAIS.ps1';
+    SET @CaminhoScript2 = 'C:\ORAAPI\INSERE_VW_ERP_NEO_LISTA_MATERIAIS.ps1';
+
+    -- Construindo os comandos PowerShell com os caminhos dos scripts e o parâmetro
+    SET @Comando1 = 'powershell.exe -ExecutionPolicy Bypass -File "' + @CaminhoScript1 + '"';
+    SET @Comando2 = 'powershell.exe -ExecutionPolicy Bypass -File "' + @CaminhoScript2 + '" -Parametro "' + @Parametro + '"';
+
+    -- Executando os scripts PowerShell usando xp_cmdshell
+    EXEC xp_cmdshell @Comando1;
+    EXEC xp_cmdshell @Comando2;
+END;
+GO
+
+/****** Object:  StoredProcedure [dbo].[SPR_ERP_NEO_MANUTENCAO]    Script Date: 17/06/2024 16:24:49 ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE PROCEDURE [dbo].[SPR_ERP_NEO_MANUTENCAO]
+    @Parametro NVARCHAR(100)  -- Parâmetro a ser passado para os scripts
+AS
+BEGIN
+    DECLARE @CaminhoScript1 NVARCHAR(500);
+    DECLARE @CaminhoScript2 NVARCHAR(500);
+    DECLARE @Comando1 NVARCHAR(1000);
+    DECLARE @Comando2 NVARCHAR(1000);
+
+    -- Definindo os caminhos para os scripts PowerShell
+    SET @CaminhoScript1 = 'C:\ORAAPI\VW_ERP_NEO_MANUTENCAO.ps1';
+    SET @CaminhoScript2 = 'C:\ORAAPI\INSERE_VW_ERP_NEO_MANUTENCAO.ps1';
+
+    -- Construindo os comandos PowerShell com os caminhos dos scripts e o parâmetro
+    SET @Comando1 = 'powershell.exe -ExecutionPolicy Bypass -File "' + @CaminhoScript1 + '"';
+    SET @Comando2 = 'powershell.exe -ExecutionPolicy Bypass -File "' + @CaminhoScript2 + '" -Parametro "' + @Parametro + '"';
+
+    -- Executando os scripts PowerShell usando xp_cmdshell
+    EXEC xp_cmdshell @Comando1;
+    EXEC xp_cmdshell @Comando2;
+END;
+GO
+
+/****** Object:  StoredProcedure [dbo].[SPR_ERP_NEO_ORDEM_PRODUCAO]    Script Date: 17/06/2024 16:24:49 ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE PROCEDURE [dbo].[SPR_ERP_NEO_ORDEM_PRODUCAO]
+    @Parametro NVARCHAR(100)  -- Parâmetro a ser passado para os scripts
+AS
+BEGIN
+    DECLARE @CaminhoScript1 NVARCHAR(500);
+    DECLARE @CaminhoScript2 NVARCHAR(500);
+    DECLARE @Comando1 NVARCHAR(1000);
+    DECLARE @Comando2 NVARCHAR(1000);
+
+    -- Definindo os caminhos para os scripts PowerShell
+    SET @CaminhoScript1 = 'C:\ORAAPI\VW_ERP_NEO_ORDEM_PRODUCAO.ps1';
+    SET @CaminhoScript2 = 'C:\ORAAPI\INSERE_VW_ERP_NEO_ORDEM_PRODUCAO.ps1';
+
+    -- Construindo os comandos PowerShell com os caminhos dos scripts e o parâmetro
+    SET @Comando1 = 'powershell.exe -ExecutionPolicy Bypass -File "' + @CaminhoScript1 + '"';
+    SET @Comando2 = 'powershell.exe -ExecutionPolicy Bypass -File "' + @CaminhoScript2 + '" -Parametro "' + @Parametro + '"';
+
+    -- Executando os scripts PowerShell usando xp_cmdshell
+    EXEC xp_cmdshell @Comando1;
+    EXEC xp_cmdshell @Comando2;
+END;
+GO
+
+/****** Object:  StoredProcedure [dbo].[SPR_ERP_NEO_RECURSO]    Script Date: 17/06/2024 16:24:49 ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE PROCEDURE [dbo].[SPR_ERP_NEO_RECURSO]
+    @Parametro NVARCHAR(100)  -- Parâmetro a ser passado para os scripts
+AS
+BEGIN
+    DECLARE @CaminhoScript1 NVARCHAR(500);
+    DECLARE @CaminhoScript2 NVARCHAR(500);
+    DECLARE @Comando1 NVARCHAR(1000);
+    DECLARE @Comando2 NVARCHAR(1000);
+
+    -- Definindo os caminhos para os scripts PowerShell
+    SET @CaminhoScript1 = 'C:\ORAAPI\VW_ERP_NEO_RECURSO.ps1';
+    SET @CaminhoScript2 = 'C:\ORAAPI\INSERE_VW_ERP_NEO_RECURSO.ps1';
+
+    -- Construindo os comandos PowerShell com os caminhos dos scripts e o parâmetro
+    SET @Comando1 = 'powershell.exe -ExecutionPolicy Bypass -File "' + @CaminhoScript1 + '"';
+    SET @Comando2 = 'powershell.exe -ExecutionPolicy Bypass -File "' + @CaminhoScript2 + '" -Parametro "' + @Parametro + '"';
+
+    -- Executando os scripts PowerShell usando xp_cmdshell
+    EXEC xp_cmdshell @Comando1;
+    EXEC xp_cmdshell @Comando2;
+END;
+GO
+
+/****** Object:  StoredProcedure [dbo].[SPR_ERP_NEO_ROTEIRO_FABRICACAO]    Script Date: 17/06/2024 16:24:49 ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE PROCEDURE [dbo].[SPR_ERP_NEO_ROTEIRO_FABRICACAO]
+    @ParametroParaApi NVARCHAR(100)  -- Parâmetro a ser passado para a API
+AS
+BEGIN
+    DECLARE @CaminhoScript1 NVARCHAR(500);
+    DECLARE @CaminhoScript2 NVARCHAR(500);
+    DECLARE @Comando1 NVARCHAR(1000);
+    DECLARE @Comando2 NVARCHAR(1000);
+
+    -- Definindo os caminhos para os scripts PowerShell
+    SET @CaminhoScript1 = 'C:\ORAAPI\VW_ERP_NEO_ROTEIRO_FABRICACAO.ps1';
+    SET @CaminhoScript2 = 'C:\ORAAPI\INSERE_VW_ERP_NEO_ROTEIRO_FABRICACAO.ps1';
+
+    -- Construindo os comandos PowerShell com os caminhos dos scripts e o parâmetro
+    SET @Comando1 = 'powershell.exe -ExecutionPolicy Bypass -File "' + @CaminhoScript1 + '"';
+    SET @Comando2 = 'powershell.exe -ExecutionPolicy Bypass -File "' + @CaminhoScript2 + '" -Parametro "' + @ParametroParaApi + '"';
+
+    -- Executando os scripts PowerShell usando xp_cmdshell
+    EXEC xp_cmdshell @Comando1;
+    EXEC xp_cmdshell @Comando2;
+END;
+GO
+
+
